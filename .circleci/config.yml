@@ -27,3 +27,7 @@ workflows:
   say-hello-workflow:
     jobs:
       - say-hello
+      - build_server_pdfs: # << the job to conditionally run based on the filter-by-branch-name.
+        filters:
+          branches:
+            only: /dev\/.*/
