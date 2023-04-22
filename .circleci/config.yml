@@ -16,7 +16,7 @@ jobs:
       - checkout
       - run:
           name: "Say hello"
-          command: "echo Hello, World!"
+          command: "echo Hello, World1!"
       - run:
           name: "npm"
           command: "npm -v"
@@ -26,4 +26,7 @@ jobs:
 workflows:
   say-hello-workflow:
     jobs:
-      - say-hello
+      - say-hello: # << the job to conditionally run based on the filter-by-branch-name.
+          filters:
+            branches:
+              only: /dev\/.*/
